@@ -1,4 +1,4 @@
-package com.bankingApp;
+package com.bankingapp.accountOwner;
 
 /**
  * Hello world!

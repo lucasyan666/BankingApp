@@ -1,5 +1,4 @@
-package com.bankingApp;
-
+package com.bankingapp;
 
 /**
  * Unit test for simple App.
