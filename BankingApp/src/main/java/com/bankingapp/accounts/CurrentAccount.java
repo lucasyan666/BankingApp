@@ -1,10 +1,8 @@
 package com.bankingapp.accounts;
-
 import com.bankingapp.bankaccount.BankAccount;
 import com.bankingapp.exceptions.InsufficientBalanceException;
 import com.bankingapp.exceptions.InvalidInputException;
 import com.bankingapp.exceptions.NegativeInputException;
-
 import java.util.Scanner;
 
 public class CurrentAccount extends BankAccount {
@@ -23,8 +21,9 @@ public class CurrentAccount extends BankAccount {
 
     public void init() throws NegativeInputException, InvalidInputException, InsufficientBalanceException {
         Scanner myObj = new Scanner(System.in);
-        System.out.println("Welcome to Lloyds bank, please enter your name");
+        System.out.println("Please enter your name:");
         setAccountHolderName(myObj.nextLine());
+        System.out.println("Welcome to your Lloyds current account " + getAccountHolderName());
         setAccountBalance(58);
         menu();
     }
@@ -64,6 +63,24 @@ public class CurrentAccount extends BankAccount {
                 else {
                     throw new InvalidInputException("Please only enter 1 or 2");
                 }
+            case (3):
+                myObj = new Scanner(System.in);
+                System.out.println("Dear " + getAccountHolderName() + ", please enter how much you would like to deposit");
+                System.out.println("Dear " + getAccountHolderName() + ", your new balance is: " + deposit(myObj.nextDouble()));                System.out.println("Functionality under maintenance...");
+                System.out.println("Do you need to perform another action, press 1 for yes and 2 for no");
+                decision = myObj.nextInt();
+                if (decision == 1) menu();
+                else if (decision == 2) break;
+                else {
+                    throw new InvalidInputException("Please only enter 1 or 2");
+                }
+                break;
+            case (4):
+                System.out.println("Functionality under maintenance...");
+                break;
+            default:
+                System.out.println("Please pick a valid option.");
+                menu();
         }
     }
 }
