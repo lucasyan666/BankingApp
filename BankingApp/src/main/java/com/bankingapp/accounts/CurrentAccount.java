@@ -64,7 +64,16 @@ public class CurrentAccount extends BankAccount {
                     throw new InvalidInputException("Please only enter 1 or 2");
                 }
             case (3):
-                System.out.println("Functionality under maintenance...");
+                myObj = new Scanner(System.in);
+                System.out.println("Dear " + getAccountHolderName() + ", please enter how much you would like to deposit");
+                System.out.println("Dear " + getAccountHolderName() + ", your new balance is: " + deposit(myObj.nextDouble()));                System.out.println("Functionality under maintenance...");
+                System.out.println("Do you need to perform another action, press 1 for yes and 2 for no");
+                decision = myObj.nextInt();
+                if (decision == 1) menu();
+                else if (decision == 2) break;
+                else {
+                    throw new InvalidInputException("Please only enter 1 or 2");
+                }
                 break;
             case (4):
                 System.out.println("Functionality under maintenance...");

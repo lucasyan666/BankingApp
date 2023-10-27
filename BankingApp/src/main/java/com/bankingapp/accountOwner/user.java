@@ -22,6 +22,9 @@ public class user
                 break;
             case(2):
                 mySavingAcc.init();
+                break;
+            default:
+                System.out.println("Please enter 1 or 2 only");
         }
     }
 }
