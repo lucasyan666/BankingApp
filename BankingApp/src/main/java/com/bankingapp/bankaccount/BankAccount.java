@@ -1,9 +1,25 @@
 package com.bankingapp.bankaccount;
 
+import com.bankingapp.exceptions.InvalidInputException;
+
 public abstract class BankAccount {
+
+    public BankAccount(){
+        this(0,0,"UKNOWN");
+    }
+
+    public BankAccount(double accountBalance, double minimumBalance, String accountHolderName) {
+        this.accountBalance = accountBalance;
+        this.minimumBalance = minimumBalance;
+        this.accountHolderName = accountHolderName;
+    }
+
     private double accountBalance;
     private double minimumBalance;
     private String accountHolderName;
+
+
+
     public double getAccountBalance() {
         return accountBalance;
     }
@@ -28,5 +44,9 @@ public abstract class BankAccount {
         this.accountHolderName = accountHolderName;
     }
 
+    public abstract double withdraw(double withdrawAmount) throws InvalidInputException;
 
+    public double deposit(double depositAmount) {
+        return 0;
+    };
 }
