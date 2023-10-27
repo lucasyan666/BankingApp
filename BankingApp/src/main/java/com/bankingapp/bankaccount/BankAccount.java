@@ -1,5 +1,6 @@
 package com.bankingapp.bankaccount;
 
+import com.bankingapp.exceptions.InsufficientBalanceException;
 import com.bankingapp.exceptions.InvalidInputException;
 import com.bankingapp.exceptions.NegativeInputException;
 
@@ -45,17 +46,18 @@ public abstract class BankAccount {
         this.accountHolderName = accountHolderName;
     }
 
-    public abstract double withdraw(double withdrawAmount) throws InvalidInputException, NegativeInputException;
+    public abstract double withdraw(double withdrawAmount) throws InvalidInputException, NegativeInputException, InsufficientBalanceException;
 
     public double deposit(double depositAmount) {
         if (depositAmount > 0) {
             return this.getAccountBalance() + depositAmount;
         } else {
-            System.out.println( depositAmount+ " is either negative or zero so cannot be deposited.");
-           return this.getAccountBalance();
+            System.out.println(depositAmount + " is either negative or zero so cannot be deposited.");
+            return this.getAccountBalance();
         }
 
 //    public double deposit(double depositAmount) throws InvalidInputException, NegativeInputException {
 //        return 0;
 //    }
-};
+    }
+}
