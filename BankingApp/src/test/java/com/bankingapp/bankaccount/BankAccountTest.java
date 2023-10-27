@@ -10,6 +10,7 @@ class BankAccountTest {
 
     @Test
     public void depositInt1Test() throws InvalidInputException, NegativeInputException{
+
         CurrentAccount currentAccTest = new CurrentAccount();
 
         int depositAmount=1;
@@ -23,6 +24,7 @@ class BankAccountTest {
 
     @Test
     public void depositInt100Test() throws InvalidInputException, NegativeInputException{
+
         CurrentAccount currentAccTest = new CurrentAccount();
 
         int depositAmount=100;
@@ -76,4 +78,4 @@ class BankAccountTest {
         assertThrows(InvalidInputException.class, () -> currentAccTest.deposit(depositAmount));
     }
 
-}
+}   
