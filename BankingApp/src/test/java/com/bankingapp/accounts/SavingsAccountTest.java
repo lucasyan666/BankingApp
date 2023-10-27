@@ -1,5 +1,6 @@
 package com.bankingapp.accounts;
 
+import com.bankingapp.exceptions.InsufficientBalanceException;
 import com.bankingapp.exceptions.InvalidInputException;
 import com.bankingapp.exceptions.NegativeInputException;
 import org.junit.jupiter.api.Test;
@@ -11,7 +12,7 @@ class SavingsAccountTest {
     SavingsAccount account = new SavingsAccount();
 
     @Test
-    public void withdraw_10_from_100() throws InvalidInputException, NegativeInputException {
+    public void withdraw_10_from_100() throws InvalidInputException, NegativeInputException, InsufficientBalanceException {
         account.setAccountBalance(100);
 
         double actual = account.withdraw(10);
@@ -32,13 +33,13 @@ class SavingsAccountTest {
     }
 
     @Test
-    public void withdraw_110_from_100() throws InvalidInputException, NegativeInputException
+    public void withdraw_110_from_100() throws InsufficientBalanceException, InvalidInputException, NegativeInputException
     {
         account.setAccountBalance(100);
 
         double actual = account.withdraw(110);
 
-        //assertThrows()
+        assertThrows(InsufficientBalanceException.class, () -> account.withdraw(110));
     }
 
 
