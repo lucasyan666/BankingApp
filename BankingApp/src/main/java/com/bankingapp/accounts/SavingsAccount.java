@@ -8,19 +8,6 @@ import com.bankingapp.exceptions.NegativeInputException;
 import java.util.Scanner;
 
 public class SavingsAccount extends BankAccount {
-
-    @Override
-    public double withdraw(double withdrawAmount) throws NegativeInputException, InsufficientBalanceException {
-        if (withdrawAmount <= 0)
-            throw new NegativeInputException();                                 //exception if withdraw input is a negative amount
-        else if (withdrawAmount > getAccountBalance())
-            throw new InsufficientBalanceException();                           //exception if withdraw amount is greater than the account balance
-        else {
-            setAccountBalance(getAccountBalance() - withdrawAmount);
-            return getAccountBalance();
-        }
-    }
-
     public void init() throws NegativeInputException, InvalidInputException, InsufficientBalanceException {
         Scanner myObj = new Scanner(System.in);
         System.out.println("Please enter your name:");
@@ -83,6 +70,16 @@ public class SavingsAccount extends BankAccount {
             default:
                 System.out.println("Please pick a valid option.");
                 menu();
+        }
+    }
+
+    @Override
+    public double withdraw(double withdrawAmount) throws InvalidInputException, NegativeInputException {
+        if (withdrawAmount <= 0) throw new InvalidInputException();                             //exception if withdraw input is a negative amount
+        else if ( withdrawAmount > getAccountBalance()) throw new NegativeInputException();     //exception if withdraw amount is greater than the account balance
+        else {
+            setAccountBalance(getAccountBalance() - withdrawAmount);
+            return getAccountBalance();
         }
     }
 }
