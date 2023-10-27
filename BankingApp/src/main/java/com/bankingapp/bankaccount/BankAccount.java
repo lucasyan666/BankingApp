@@ -28,7 +28,10 @@ public abstract class BankAccount {
     }
 
     public void setAccountBalance(double accountBalance) {
-        this.accountBalance = accountBalance;
+          if (accountBalance > this.minimumBalance){
+              this.accountBalance = accountBalance;
+        }
+
     }
 
     public double getMinimumBalance() {
@@ -36,8 +39,9 @@ public abstract class BankAccount {
     }
 
     public void setMinimumBalance(double minimumBalance) {
-//        !!! make cond must <=0
-        this.minimumBalance = minimumBalance;
+        if (minimumBalance <= 0 ){
+            this.minimumBalance = minimumBalance;
+        }
     }
 
     public String getAccountHolderName() {
