@@ -1,5 +1,7 @@
 package com.bankingapp.bankaccount;
 
+import com.bankingapp.exceptions.InvalidInputException;
+
 public abstract class BankAccount {
 
     public BankAccount(){
@@ -42,7 +44,7 @@ public abstract class BankAccount {
         this.accountHolderName = accountHolderName;
     }
 
-    public abstract double withdraw(double withdrawAmount);
+    public abstract double withdraw(double withdrawAmount) throws InvalidInputException;
 
     public double deposit(double depositAmount) {
         return 0;
