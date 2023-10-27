@@ -48,5 +48,5 @@ public abstract class BankAccount {
 
     public double deposit(double depositAmount) {
         return 0;
-    };
+    }
 }
