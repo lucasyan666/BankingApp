@@ -1,13 +1,15 @@
 package com.bankingapp.bankaccount;
 
 import com.bankingapp.accounts.CurrentAccount;
+import com.bankingapp.exceptions.InvalidInputException;
+import com.bankingapp.exceptions.NegativeInputException;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 class BankAccountTest {
 
     @Test
-    public void depositInt1Test(){
+    public void depositInt1Test() throws NegativeInputException, InvalidInputException {
         CurrentAccount currentAccTest = new CurrentAccount();
 
         int depositAmount=1;
@@ -20,7 +22,7 @@ class BankAccountTest {
     }
 
     @Test
-    public void depositInt100Test(){
+    public void depositInt100Test() throws NegativeInputException, InvalidInputException {
         CurrentAccount currentAccTest = new CurrentAccount();
 
         int depositAmount=100;
