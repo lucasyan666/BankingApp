@@ -47,6 +47,11 @@ public abstract class BankAccount {
     public abstract double withdraw(double withdrawAmount) throws InvalidInputException;
 
     public double deposit(double depositAmount) {
-        return 0;
-    };
+        if (depositAmount > 0) {
+            return this.getAccountBalance() + depositAmount;
+        } else {
+            System.out.println( depositAmount+ " is either negative or zero so cannot be deposited.");
+           return this.getAccountBalance();
+        }
+    }
 }
