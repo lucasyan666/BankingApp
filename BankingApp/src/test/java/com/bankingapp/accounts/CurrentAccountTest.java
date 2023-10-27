@@ -1,7 +1,6 @@
 package com.bankingapp.accounts;
 
 import com.bankingapp.exceptions.InsufficientBalanceException;
-import com.bankingapp.exceptions.InvalidInputException;
 import com.bankingapp.exceptions.NegativeInputException;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
