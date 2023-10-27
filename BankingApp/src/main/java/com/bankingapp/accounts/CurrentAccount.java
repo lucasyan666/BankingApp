@@ -11,7 +11,7 @@ public class CurrentAccount extends BankAccount {
     public double withdraw(double withdrawAmount) throws NegativeInputException, InsufficientBalanceException {
         if (withdrawAmount <= 0)
             throw new NegativeInputException();                                 //exception if withdraw input is a negative amount
-        else if (withdrawAmount > getAccountBalance())
+        else if (withdrawAmount > (getAccountBalance()-getMinimumBalance()))
             throw new InsufficientBalanceException();                           //exception if withdraw amount is greater than the account balance
         else {
             setAccountBalance(getAccountBalance() - withdrawAmount);
