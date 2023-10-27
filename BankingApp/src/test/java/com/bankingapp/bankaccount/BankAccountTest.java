@@ -30,6 +30,19 @@ class BankAccountTest {
         double actualBalance = currentAccTest.deposit((depositAmount));
 
         assertEquals(expectedBalance,actualBalance);
+
     }
+
+    @Test
+    public void NegativeDepositInt100Test(){
+        CurrentAccount currentAccTest = new CurrentAccount();
+
+        int depositAmount=100;
+        double startBalance = currentAccTest.getAccountBalance();
+        double expectedBalance = startBalance;
+        double actualBalance = currentAccTest.deposit((depositAmount));
+        assertEquals(expectedBalance,actualBalance);
+    }
+
 
 }

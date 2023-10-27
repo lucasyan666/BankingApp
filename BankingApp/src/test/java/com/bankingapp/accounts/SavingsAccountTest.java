@@ -1,5 +1,6 @@
 package com.bankingapp.accounts;
 
+import com.bankingapp.exceptions.InvalidInputException;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -9,24 +10,23 @@ class SavingsAccountTest {
     SavingsAccount account = new SavingsAccount();
 
     @Test
-    public void withdraw_10_from_100() {
-        double withdraw = 10;
-        double expected = 90;
+    public void withdraw_10_from_100() throws InvalidInputException {
+        account.setAccountBalance(100);
+        account.withdraw(10);
 
-        double actual = account.withdraw(withdraw);
+        double actual = account.getAccountBalance();
+        double expected = 90;
 
         assertEquals(expected, actual);
     }
 
-    @Test
-    public void withdraw_100_from_100() {
-        double savingBal = 100;
-        double withdraw = 100;
-        //expected is returned balance
-        double expected = 0;
+    public void deposit_10_into_100() throws InvalidInputException{
 
+        account.setAccountBalance(100);
+        account.deposit(10);
 
     }
+
 
 
 }
